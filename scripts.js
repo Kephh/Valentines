@@ -40,6 +40,7 @@ document.querySelector("#btn").addEventListener("click", function () {
 
             document.getElementById("no-btn").addEventListener("click", function () {
                 if (flag) {
+                    flag = false;
                     document.querySelector("#q-p").style.display = "none";
                     document.querySelector(".p-cls").style.backgroundColor = "transparent";
                     document.querySelector(".btn-cls").style.display = "none";
@@ -48,8 +49,8 @@ document.querySelector("#btn").addEventListener("click", function () {
                         document.querySelector(".p-cls").style.backgroundColor = "white";
                         document.querySelector(".btn-cls").style.display = "flex";
                         document.querySelector("#q-p").innerHTML = "You don't like me back...?";
-                        yes.innerText = "I do";
-                        no.innerText = "I don't";
+                        document.querySelector("#yes-btn").innerText = "I do";
+                        document.querySelector("#no-btn").innerText = "I don't";
                     }, 1000);
                 } else {
                     document.querySelector("#q-p").style.display = "none";
@@ -68,7 +69,7 @@ document.querySelector("#btn").addEventListener("click", function () {
                 
             })
         } else {
-            flag = true;
+            random=0;
             setTimeout(function () {
                 document.querySelector(".msg").style.display = "block";
                 document.querySelector(".msg").style.backgroundColor = "transparent";
