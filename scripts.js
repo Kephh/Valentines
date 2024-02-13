@@ -1,10 +1,11 @@
 var video = document.querySelector("video");
 var flag = true;
+count = 0;
 
 var random = Math.floor(Math.random() * 2);
 document.querySelector("#btn").addEventListener("click", function () {
     if (document.querySelector("input").value != "") {
-        if (random == 0) {
+        if (random == 0 && count > 1) {
             document.querySelector(".overlay").style.display = "none";
             setTimeout(function () {
                 document.querySelector(".msg").style.display = "flex";
@@ -59,7 +60,8 @@ document.querySelector("#btn").addEventListener("click", function () {
                     setTimeout(function () {
                         document.querySelector("#q-p").style.display = "flex";
                         document.querySelector(".p-cls").style.backgroundColor = "white";
-                        document.querySelector("#q-p").innerHTML = "At least one of us is honest!";
+                        document.querySelector("#q-p").innerHTML = "You could have been Rick Rolled!";
+                        video.pause();
                         setTimeout(function () {
                             closeWindowOrRedirect();
                         }, 2500);
@@ -68,6 +70,7 @@ document.querySelector("#btn").addEventListener("click", function () {
 
             })
         } else {
+            count++;
             setTimeout(function () {
                 document.querySelector(".msg").style.display = "block";
                 document.querySelector(".msg").style.backgroundColor = "transparent";
@@ -84,9 +87,6 @@ document.querySelector("#btn").addEventListener("click", function () {
                     document.querySelector("#btn").innerText = "Try Again";
                 }, 3500);
             }, 1000);
-            document.querySelector("#btn").addEventListener("click", function () {
-                window.location.reload();
-            })
         }
     } else {
         alert("Please enter your name");
