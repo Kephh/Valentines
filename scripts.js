@@ -1,11 +1,10 @@
 var video = document.querySelector("video");
 var flag = true;
-count = 0;
 
 var random = Math.floor(Math.random() * 2);
 document.querySelector("#btn").addEventListener("click", function () {
     if (document.querySelector("input").value != "") {
-        if (random == 0 && count > 1) {
+        if (random == 0) {
             document.querySelector(".overlay").style.display = "none";
             setTimeout(function () {
                 document.querySelector(".msg").style.display = "flex";
@@ -41,7 +40,6 @@ document.querySelector("#btn").addEventListener("click", function () {
 
             document.getElementById("no-btn").addEventListener("click", function () {
                 if (flag) {
-                    flag = false;
                     document.querySelector("#q-p").style.display = "none";
                     document.querySelector(".p-cls").style.backgroundColor = "transparent";
                     document.querySelector(".btn-cls").style.display = "none";
@@ -67,10 +65,10 @@ document.querySelector("#btn").addEventListener("click", function () {
                         }, 2500);
                     }, 1000);
                 }
-
+                
             })
         } else {
-            count++;
+            flag = true;
             setTimeout(function () {
                 document.querySelector(".msg").style.display = "block";
                 document.querySelector(".msg").style.backgroundColor = "transparent";
